@@ -1,0 +1,136 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #e6d8cc;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Header */
+.title img {
+  width: 100px;      /* rasm kengligi */
+  height: auto;     /* nisbatni saqlash */
+  vertical-align: middle; /* matn bilan tekislash */
+}
+.title {
+  margin: 20px;
+  background: #b0907a;
+  padding: 5px 10px;  /* kichikroq padding */
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #3b2f2f;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #3b2f2f;
+  transition: 0.3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Main text */
+.boshi {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.boshi h1 {
+  font-size: 42px;
+  color: #2e2424;
+}
+
+.highlight {
+  display: block;
+  color: #b0907a;
+}
+
+/* Grid */
+.coffee-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin: 60px;
+}
+
+/* Card */
+.coffee-card {
+  background: #e6d8cc;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.coffee-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image */
+.coffee-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* Card content */
+.card-content {
+  margin-top: 15px;
+}
+
+.card-content h3 {
+  font-size: 18px;
+  color: #403f3d;
+  margin-bottom: 6px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #665f55;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #403f3d;
+}
+.kki {
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  width: 1520px;
+  transform: translate(-50%, -50%) translateY(40px);
+}

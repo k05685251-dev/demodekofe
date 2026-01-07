@@ -1,0 +1,55 @@
+/* Coffee.css dan nusxa */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; background: #e6d8cc; }
+.container { width:100%; min-height:100vh; }
+
+.title img { width:100px; height:auto; vertical-align: middle; }
+.title { margin:20px; background:#b0907a; padding:5px 10px; border-radius:999px; width:fit-content; }
+
+.nav { display:flex; justify-content:center; gap:30px; margin-top:20px; }
+.nav a { text-decoration:none; font-size:18px; color:#3b2f2f; position:relative; }
+.nav a::after { content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:#3b2f2f; transition:0.3s; }
+.nav a:hover::after { width:100%; }
+
+.boshi { margin-top:120px; text-align:center; }
+.boshi h1 { font-size:42px; color:#2e2424; }
+.highlight { display:block; color:#b0907a; }
+
+.coffee-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:25px; margin:60px; }
+.coffee-card { background:#e6d8cc; border-radius:20px; padding:15px; box-shadow:0 6px 15px rgba(0,0,0,0.15); cursor:pointer; transition:0.3s; }
+.coffee-card:hover { transform: translateY(-8px); }
+.coffee-card img { width:100%; height:220px; object-fit:cover; border-radius:18px; }
+
+.card-content { margin-top:15px; }
+.card-content h3 { font-size:18px; color:#403f3d; margin-bottom:6px; }
+.card-content p { font-size:14px; color:#665f55; line-height:1.4; margin-bottom:10px; }
+.price { font-size:18px; font-weight:bold; color:#403f3d; }
+
+.modal-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
+.modal { background:#fff; padding:30px; border-radius:15px; width:400px; max-width:90%; text-align:center; position:relative; }
+.modal img { width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
+.modal .quantity { display:flex; justify-content:center; align-items:center; margin:15px 0; gap:10px; }
+.modal .quantity button { padding:5px 12px; font-size:18px; border:none; background:#b0907a; color:#fff; border-radius:5px; cursor:pointer; }
+.modal .order-btn { background:#b0907a; color:#fff; padding:12px 20px; border:none; border-radius:10px; cursor:pointer; font-weight:bold; margin-top:10px; }
+.modal .close-btn { position:absolute; top:10px; right:15px; background:none; border:none; font-size:20px; cursor:pointer; }
+
+.orders-panel { position:fixed; bottom:0; left:0; width:100%; background-color:#8b5e3c; color:white; padding:10px 20px; display:flex; gap:20px; align-items:center; z-index:1000; overflow-x:auto; }
+.orders-panel h3 { margin-right:20px; white-space:nowrap; }
+.order-item { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.2); border-radius:10px; padding:5px 10px; margin-right:10px; min-width:220px; }
+
+.order-all-buttons { display:flex; gap:10px; margin-left:20px; }
+.order-all-buttons button { background-color:#fff; color:#af4c4c; border:none; padding:8px 12px; border-radius:5px; font-weight:bold; cursor:pointer; }
+.order-all-buttons button:hover { background-color:#e0e0e0; }
+
+.card-input { width: 100%; padding: 12px; font-size: 18px; border-radius: 8px; border: 1px solid #ccc; margin: 15px 0; text-align: center; letter-spacing: 2px; }
+
+.result-modal { width: 360px; text-align: left; }
+.success-text { text-align: center; color: green; margin: 15px 0; }
+
+.timer-panel { position: fixed; bottom: 80px; left: 0; width: 100%; background: #3b2f2f; color: white; text-align: center; padding: 15px; font-size: 18px; z-index: 3000; }
+.ready-text { color: #00ff99; font-weight: bold; }
+
+@media (max-width: 600px) {
+  .timer-panel { font-size: 16px; padding: 12px; }
+  .coffee-grid { grid-template-columns:repeat(1,1fr); margin:20px; gap:15px; }
+}

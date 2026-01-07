@@ -1,0 +1,606 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:  #e1d4c9;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.header-wrapper {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo-wrapper img {
+  width: 100px;
+}
+
+.nav-wrapper .nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #403f3d;
+  font-weight: 500;
+}
+
+/* ===== USER CARD ===== */
+.user-wrapper {
+  display: flex;
+}
+
+.user-check {
+
+  padding: 10px 14px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.user-avatar {
+  font-size: 32px;
+}
+
+.user-info h3 {
+  font-size: 16px;
+}
+
+.user-info p {
+  font-size: 12px;
+  color: gray;
+}
+
+.logout-wrapper button {
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.hero {
+  width: 90%;
+  max-width: 1450px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+/* gradient */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.15)
+  );
+}
+
+/* hero text */
+.hero-overlay {
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  max-width: 520px;
+  color: white;
+  z-index: 2;
+}
+
+.hero-text-wrapper h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-text-wrapper h1 span {
+  color: #d6b8a2;
+  font-style: italic;
+}
+
+.hero-text-wrapper p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-btn-wrapper .menu-btn {
+  padding: 14px 36px;
+  border-radius: 40px;
+  border: none;
+  font-weight: 600;
+  background: #e1d4c9;
+  cursor: pointer;
+}
+
+/* ================= PRODUCT ================= */
+.product-wrapper {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== IMAGE AREA ===== */
+.image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-area {
+  width: 60%;
+  position: relative;
+}
+
+.main-image-wrapper img {
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+
+}
+
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.arrow.left {
+  left: -60px;
+}
+
+.arrow.right {
+  right: -60px;
+}
+
+/* extra images */
+.extra-images-wrapper img {
+  position: absolute;
+  left: 400px;
+}
+
+.hero-img2 {
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-img3 {
+  top: 240%;
+  left: 85%;
+}
+
+.hero-img4 {
+  top: 340%;
+  left: 50%;
+  width: 1400px;
+  transform: translateX(-50%);
+}
+.hero-img4 {
+  top: 340%;
+  left: 50%;
+  width: 1400px;
+  transform: translateX(-50%);
+}
+
+
+
+/* ================= COUNTER ================= */
+.counter-wrapper {
+  margin-top: 40px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.counter button {
+  background: #734a2f;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.counter-delete .delete-btn {
+  border-radius: 10px;
+  background: #e74c3c;
+}
+
+.counter-total h2 {
+  color: #403f3d;
+}
+
+/* ================= ORDER ================= */
+.order-wrapper {
+  margin-top: 30px;
+}
+
+.order-btn {
+  padding: 14px 30px;
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.address-wrapper {
+  margin-top: 15px;
+}
+
+.address-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.address-box input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #cbb29b; /* qizil fon */
+  color: rgb(0, 0, 0); /* yozuvni oq qilamiz, aks holda o‘qish qiyin bo‘ladi */
+}
+
+
+.address-box button {
+  padding: 12px;
+  background: #734a2f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.ordered-text {
+  margin-top: 20px;
+  color: #8b5e3c;
+}
+
+/* ================= MODAL ================= */
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 400px;
+}
+
+.modal-title h2 {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.cancel-btn {
+  background: #e74c3c;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.continue-btn {
+  background: #734a2f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
+.k1{
+  position: absolute;
+  top: 400%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+}
+.k2{
+  position: absolute;
+  top: 550%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  
+}
+.k3{
+  position: absolute;
+  top: 650%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+}
+/* ================= REGISTER PAGE ================= */
+.register-page {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #e1d4c9 0%,
+    #cbb29b 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== REGISTER BOX ===== */
+.register-box {
+  width: 360px;
+  background: #ffffff;
+  padding: 30px 28px;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #403f3d;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* ===== GENDER ===== */
+.gender-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.gender {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  background: #f3eee9;
+  color: #403f3d;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.gender:hover {
+  background: #e6d8cc;
+}
+
+.gender.active {
+  background: #8b5e3c;
+  color: white;
+  border-color: #8b5e3c;
+  transform: scale(1.03);
+}
+
+/* ===== INPUTS ===== */
+.register-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.register-box input:focus {
+  border-color: #8b5e3c;
+  box-shadow: 0 0 0 2px rgba(139, 94, 60, 0.2);
+}
+
+/* ===== BUTTON ===== */
+.register-box button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #8b5e3c;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-box button:hover {
+  background: #734a2f;
+  transform: translateY(-2px);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 420px) {
+  .register-box {
+    width: 90%;
+    padding: 24px;
+  }
+}
+.cancel-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.cancel-reasons label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cancel-reasons input[type="radio"] {
+  accent-color: #8b5e3c;
+}
+
+.cancel-reasons input[type="text"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.cancel-reasons label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px 12px; /* label atrofida biroz bo'sh joy */
+  border-radius: 10px; /* yumaloq burchak */
+  background-color: #8b5e3cb7; /* jigar rangli fon */
+  color: white; /* matnni oq qilamiz */
+  transition: 0.3s;
+}
+
+.cancel-reasons label:hover {
+  background-color: #734a2f; /* hover bo'lganda fonni ozgina qoraytirish */
+}
+
+.cancel-reasons input[type="radio"] {
+  accent-color: white; /* radio tugma oq rangda bo'lsin */
+}
+
+.cancel-reasons input[type="text"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 5px; /* textbox labeldan ozroq pastroq bo'lsin */
+}
+/* ===== LIGHT / DARK TOGGLE ===== */
+.theme-toggle-wrapper {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  z-index: 9999;
+}
+
+
+.theme-toggle {
+  padding: 10px 18px;
+  border-radius: 24px;   /* yumaloq burchak */
+  border: none;
+  background: linear-gradient(135deg, #8b5e3c, #cbb29b);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #734a2f, #8b5e3c);
+}
+
+/* DARK MODE GLOBAL */
+.dark {
+  background-color:#8b5e3c30;
+  color: #e0e0e0 !important;
+}
+
+/* HEADER, NAV, HERO TEXT */
+.dark .header-wrapper,
+.dark .nav a,
+.dark .user-check,
+.dark .hero-text-wrapper h1,
+.dark .hero-text-wrapper p {
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+/* BUTTONS */
+.dark .menu-btn,
+.dark .order-btn,
+.dark .continue-btn,
+.dark .cancel-btn,
+.dark .theme-toggle {
+  color: white !important;
+}
+
+/* COUNTER & ORDER */
+.dark .counter button,
+.dark .delete-btn,
+.dark .address-box input {
+
+  color: #fff !important;
+  border: 1px solid #555;
+}
+
+/* MODAL */
+.dark .modal,
+.dark .cancel-reasons label,
+.dark .address-box input {
+  background-color: #2c2c2c !important;
+  color: #fff !important;
+}
+
