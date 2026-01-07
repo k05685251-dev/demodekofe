@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
 import Coffee from "./Coffee.jsx";
 import Tea from "./Tea.jsx";
-import Dessert from "./Dessert.jsx";
+import Dessert from "./dessert.jsx";
 import Menyu from "./Menyu.jsx"; // 👈 SHU YO‘Q EDI
 
 function App() {
