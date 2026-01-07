@@ -250,6 +250,31 @@ const closeResultModal = () => {
           )}
         </div>
       )}
+   {/* Footer */}
+<footer className="footer">
+  <div className="footer-content">
+    <div className="footer-left">
+      <h2>Sip, Savor, Smile.</h2>
+      <p>It’s coffee time!</p>
+
+      <div className="socials">
+        <span>🐦</span>
+        <span>📸</span>
+        <span>📘</span>
+      </div>
+    </div>
+
+    <div className="footer-right">
+      <h3>Contact us</h3>
+      <p>📍 8558 Green Rd., LA</p>
+      <p>📞 +1 (603) 555-0123</p>
+      <p>⏰ Mon-Sat: 9:00 AM – 23:00 PM</p>
+    </div>
+  </div>
+</footer>
+
+
+
     </div>
   );
 };
