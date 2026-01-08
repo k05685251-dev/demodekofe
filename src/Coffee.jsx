@@ -1,23 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Coffee.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Coffee = () => {
+  const location = useLocation();
+  const discount = location.state?.discount || 0; // bonusdan kelgan chegirma
+
   const [coffeeList, setCoffeeList] = useState([]);
   const [selectedCoffee, setSelectedCoffee] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [orders, setOrders] = useState([]);
 
-  // 🔹 To‘lov modal state-lari
+  // To‘lov modal state
   const [showCardModal, setShowCardModal] = useState(false);
   const [showResultModal, setShowResultModal] = useState(false);
   const [cardNumber, setCardNumber] = useState("");
 
-  // 🔹 Taymer state-lari
+  // Taymer state
   const [showTimer, setShowTimer] = useState(false);
- const [timeLeft, setTimeLeft] = useState(10); // 10 sekund
-
+  const [timeLeft, setTimeLeft] = useState(10); // 10 sekund
 
   useEffect(() => {
     axios
@@ -26,7 +28,7 @@ const Coffee = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // 🔹 Taymer ishlashi
+  // Taymer ishlashi
   useEffect(() => {
     if (!showTimer) return;
     if (timeLeft === 0) return;
@@ -38,6 +40,16 @@ const Coffee = () => {
     return () => clearInterval(interval);
   }, [showTimer, timeLeft]);
 
+// Narxni chegirma bilan hisoblash
+const getDiscountedPrice = (price) => {
+  const numericPrice = Number(price.replace(/\D/g, "")); // faqat raqam
+  if (!discount) return `$${numericPrice.toLocaleString("en-US")}`; // chegirma yo‘q
+  const discounted = numericPrice * (1 - discount / 100);
+  return `$${discounted.toLocaleString("en-US")} (${discount}% chegirma!)`;
+};
+
+
+  // Buyurtma funksiyalari
   const handleOrder = () => {
     setOrders((prev) => {
       const existing = prev.find((o) => o.id === selectedCoffee.id);
@@ -64,9 +76,7 @@ const Coffee = () => {
     setShowCardModal(true);
   };
 
-  const handleCancelAll = () => {
-    setOrders([]);
-  };
+  const handleCancelAll = () => setOrders([]);
 
   const handlePay = () => {
     if (cardNumber.length !== 16) {
@@ -77,15 +87,13 @@ const Coffee = () => {
     setShowResultModal(true);
   };
 
-  // 🔹 Natija oynasini yopganda taymer boshlanadi
-const closeResultModal = () => {
-  setShowResultModal(false);
-  setOrders([]);
-  setCardNumber("");
-  setShowTimer(true);
-  setTimeLeft(10); // 10 sekund
-};
- 
+  const closeResultModal = () => {
+    setShowResultModal(false);
+    setOrders([]);
+    setCardNumber("");
+    setShowTimer(true);
+    setTimeLeft(10);
+  };
 
   const formatTime = (sec) => {
     const m = Math.floor(sec / 60);
@@ -102,9 +110,10 @@ const closeResultModal = () => {
         </h1>
         <nav className="nav">
           <Link to="/">Home</Link>
-          <Link to="/coffee">Coffee</Link>
+          <Link to="/coffee" className="active">Coffee</Link>
           <Link to="/tea">Tea</Link>
           <Link to="/dessert">Dessert</Link>
+          <Link to="/bonus">Bonus</Link>
         </nav>
       </header>
 
@@ -127,7 +136,7 @@ const closeResultModal = () => {
             <img src={item.image} alt={item.name} />
             <div className="card-content">
               <h3>{item.name}</h3>
-              <span className="price">{item.price}</span>
+              <span className="price">{getDiscountedPrice(item.price)}</span>
             </div>
           </div>
         ))}
@@ -142,22 +151,13 @@ const closeResultModal = () => {
             <p>{selectedCoffee.description}</p>
 
             <div className="quantity">
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
-                -
-              </button>
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
               <span>{quantity}</span>
               <button onClick={() => setQuantity(quantity + 1)}>+</button>
             </div>
 
-            <button className="order-btn" onClick={handleOrder}>
-              Buyurtma berish
-            </button>
-            <button
-              className="close-btn"
-              onClick={() => setSelectedCoffee(null)}
-            >
-              X
-            </button>
+            <button className="order-btn" onClick={handleOrder}>Buyurtma berish</button>
+            <button className="close-btn" onClick={() => setSelectedCoffee(null)}>X</button>
           </div>
         </div>
       )}
@@ -175,12 +175,8 @@ const closeResultModal = () => {
           ))}
 
           <div className="order-all-buttons">
-            <button onClick={handleConfirmAll}>
-              Barchasini Buyurtma Qilish
-            </button>
-            <button onClick={handleCancelAll}>
-              Barchasini Bekor Qilish
-            </button>
+            <button onClick={handleConfirmAll}>Barchasini Buyurtma Qilish</button>
+            <button onClick={handleCancelAll}>Barchasini Bekor Qilish</button>
           </div>
         </div>
       )}
@@ -194,20 +190,11 @@ const closeResultModal = () => {
               className="card-input"
               maxLength={16}
               value={cardNumber}
-              onChange={(e) =>
-                setCardNumber(e.target.value.replace(/\D/g, ""))
-              }
+              onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ""))}
               placeholder="8600123456789012"
             />
-            <button className="order-btn" onClick={handlePay}>
-              Tasdiqlash
-            </button>
-            <button
-              className="close-btn"
-              onClick={() => setShowCardModal(false)}
-            >
-              X
-            </button>
+            <button className="order-btn" onClick={handlePay}>Tasdiqlash</button>
+            <button className="close-btn" onClick={() => setShowCardModal(false)}>X</button>
           </div>
         </div>
       )}
@@ -217,20 +204,12 @@ const closeResultModal = () => {
         <div className="modal-overlay">
           <div className="modal result-modal">
             <h2>To‘lov muvaffaqiyatli!</h2>
-            <p>
-              <strong>Karta:</strong> {cardNumber}
-            </p>
-
+            <p><strong>Karta:</strong> {cardNumber}</p>
             {orders.map((o) => (
-              <p key={o.id}>
-                {o.name}: {o.quantity} ta
-              </p>
+              <p key={o.id}>{o.name}: {o.quantity} ta</p>
             ))}
-
             <h3 className="success-text">Buyurtma qilindi ✅</h3>
-            <button className="order-btn" onClick={closeResultModal}>
-              Yopish
-            </button>
+            <button className="order-btn" onClick={closeResultModal}>Yopish</button>
           </div>
         </div>
       )}
@@ -239,42 +218,33 @@ const closeResultModal = () => {
       {showTimer && (
         <div className="timer-panel">
           {timeLeft > 0 ? (
-            <p>
-              ⏳ Buyurtmangiz{" "}
-              <strong>{formatTime(timeLeft)}</strong> daqiqa da tayyor bo‘ladi
-            </p>
+            <p>⏳ Buyurtmangiz <strong>{formatTime(timeLeft)}</strong> daqiqa da tayyor bo‘ladi</p>
           ) : (
-            <p className="ready-text">
-              ☕ Buyurtmangiz tayyor, olib ketishingiz mumkin ✅
-            </p>
+            <p className="ready-text">☕ Buyurtmangiz tayyor, olib ketishingiz mumkin ✅</p>
           )}
         </div>
       )}
-   {/* Footer */}
-<footer className="footer">
-  <div className="footer-content">
-    <div className="footer-left">
-      <h2>Sip, Savor, Smile.</h2>
-      <p>It’s coffee time!</p>
 
-      <div className="socials">
-        <span>🐦</span>
-        <span>📸</span>
-        <span>📘</span>
-      </div>
-    </div>
-
-    <div className="footer-right">
-      <h3>Contact us</h3>
-      <p>📍 8558 Green Rd., LA</p>
-      <p>📞 +1 (603) 555-0123</p>
-      <p>⏰ Mon-Sat: 9:00 AM – 23:00 PM</p>
-    </div>
-  </div>
-</footer>
-
-
-
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-left">
+            <h2>Sip, Savor, Smile.</h2>
+            <p>It’s coffee time!</p>
+            <div className="socials">
+              <span>🐦</span>
+              <span>📸</span>
+              <span>📘</span>
+            </div>
+          </div>
+          <div className="footer-right">
+            <h3>Contact us</h3>
+            <p>📍 8558 Green Rd., LA</p>
+            <p>📞 +1 (603) 555-0123</p>
+            <p>⏰ Mon-Sat: 9:00 AM – 23:00 PM</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -4,6 +4,8 @@ import Coffee from "./Coffee.jsx";
 import Tea from "./Tea.jsx";
 import Dessert from "./dessert.jsx";
 import Menyu from "./Menyu.jsx"; // 👈 SHU YO‘Q EDI
+import Bonus from "./Bonus.jsx"; // 👈 SHU YO‘Q EDI
+
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/tea" element={<Tea />} />
         <Route path="/dessert" element={<Dessert />} />
         <Route path="/menyu" element={<Menyu />} />
+        <Route path="/bonus" element={<Bonus />} />
+
       </Routes>
     </BrowserRouter>
   );

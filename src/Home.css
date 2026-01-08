@@ -603,4 +603,58 @@ body {
   background-color: #2c2c2c !important;
   color: #fff !important;
 }
+.main-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
+/* rasm */
+.main-image-wrapper img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* matn */
+.main-image-wrapper h1 {
+  position: absolute;
+  top: -50px;              /* rasm tepasidan masofa */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 36px;
+  font-weight: 200;
+  text-align: center;
+  z-index: 5;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.coffee-info {
+  text-align: center;
+  padding: 20px 15px 30px;
+}
+
+.coffee-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3d3d3d;
+  margin-bottom: 10px;
+}
+
+.coffee-desc {
+  font-size: 14px;
+  color: #6b6b6b;
+  max-width: 420px;
+  margin: 0 auto 15px;
+  line-height: 1.6;
+}
+.nav a.active {
+  color: #8b5e3cb7;
+  font-weight: 600;
+}
+.coffee-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3d3d3d;
+}

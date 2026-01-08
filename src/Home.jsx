@@ -160,10 +160,11 @@ const Home = () => {
 
         <div className="nav-wrapper">
           <nav className="nav">
-            <Link to="/">Home</Link>
+            <Link to="/" className="active">Home</Link>
             <Link to="/coffee">Coffee</Link>
             <Link to="/tea">Tea</Link>
             <Link to="/dessert">Dessert</Link>
+            <Link to="/bonus">Bonus</Link>
           </nav>
         </div>
 
@@ -214,10 +215,21 @@ const Home = () => {
           <div className="image-area">
             <button className="arrow left" onClick={prevImage}>◀</button>
 
-            <div className="main-image-wrapper">
-              <h1>Choose your favorite coffee</h1>
-              <img className="hero-img1" src="/i.png" alt="Coffee" />
-            </div>
+           <div className="main-image-wrapper">
+  <h1>Choose your favorite coffee</h1>
+  <img className="hero-img1" src="/i.png" alt="Coffee" />
+</div>
+<div class="coffee-info">
+  <h3 class="coffee-title">S’mores Frappuccino</h3>
+
+  <p class="coffee-desc">
+    This new drink takes an espresso and mixes it with brown
+    sugar and cinnamon before being topped with oat milk.
+  </p>
+
+  <span class="coffee-price">$5.50</span>
+</div>
+
 
             <button className="arrow right" onClick={nextImage}>▶</button>
           </div>

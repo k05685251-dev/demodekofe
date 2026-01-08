@@ -207,3 +207,17 @@ body {
     font-size: 26px;
   }
 }
+.nav a.active {
+  color: #8b5e3cb7;
+  font-weight: 600;
+}
+.original-price {
+  text-decoration: line-through;
+  color: #a0a0a0;
+}
+
+.discounted-price {
+  font-weight: 600;
+  color: #e67e22;
+  margin-top: 5px;
+}

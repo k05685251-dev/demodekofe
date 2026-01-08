@@ -137,3 +137,7 @@ body { font-family: Arial, sans-serif; background: #e6d8cc; }
     font-size: 26px;
   }
 }
+.nav a.active {
+  color: #8b5e3cb7;
+  font-weight: 600;
+}
