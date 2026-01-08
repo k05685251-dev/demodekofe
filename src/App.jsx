@@ -1,25 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home.jsx";
-import Coffee from "./Coffee.jsx";
-import Tea from "./Tea.jsx";
-import Dessert from "./dessert.jsx";
-import Menyu from "./Menyu.jsx"; // 👈 SHU YO‘Q EDI
-import Bonus from "./Bonus.jsx"; // 👈 SHU YO‘Q EDI
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Bonus from "./Bonus";
+import Info from "./Info";
+import Coffee from "./Coffee";
+import Tea from "./Tea";
+import Dessert from "./dessert";
+import Home from "./Home";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/coffee" element={<Coffee />} />
         <Route path="/tea" element={<Tea />} />
         <Route path="/dessert" element={<Dessert />} />
-        <Route path="/menyu" element={<Menyu />} />
         <Route path="/bonus" element={<Bonus />} />
-
+        <Route path="/info" element={<Info />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
