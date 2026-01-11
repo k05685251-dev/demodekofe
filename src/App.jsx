@@ -6,6 +6,7 @@ import Tea from "./Tea";
 import Dessert from "./dessert";
 import Home from "./Home";
 import Menyu from "./Menyu";
+import Children from "./children"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/bonus" element={<Bonus />} />
         <Route path="/info" element={<Info />} />
         <Route path="/menyu" element={<Menyu />} />
+        <Route path="/children" element={<Children />} />
       </Routes>
     </Router>
   );

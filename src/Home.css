@@ -564,8 +564,7 @@ body {
 
 /* DARK MODE GLOBAL */
 .dark {
-  background-color:#8b5e3c30;
-  color: #e0e0e0 !important;
+  background-color:#8b3c3c30;
 }
 
 /* HEADER, NAV, HERO TEXT */
@@ -575,16 +574,15 @@ body {
 .dark .hero-text-wrapper h1,
 .dark .hero-text-wrapper p {
   background-color: transparent !important;
-  color: #e0e0e0 !important;
+ 
 }
 
 /* BUTTONS */
-.dark .menu-btn,
 .dark .order-btn,
 .dark .continue-btn,
 .dark .cancel-btn,
 .dark .theme-toggle {
-  color: white !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 /* COUNTER & ORDER */

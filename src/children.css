@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  min-height: 100vh;
+  background: #e1d4c9;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== HEADER ===== */
+.header {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.title img {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* ===== NAV ===== */
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #c97b3d;
+}
+
+.nav a.active {
+  color: #c97b3d;
+  font-weight: 600;
+}
+
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #c97b3d;
+  border-radius: 2px;
+}
+
+/* ===== GRID ===== */
+.children-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Har doim 4 ta kartalar qatorda */
+  gap: 25px;
+  padding: 40px;
+}
+
+/* ===== CARD ===== */
+.children-card {
+  background: #E6D8CC;
+  border-radius: 18px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.children-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.children-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.children-card h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+  color: #333;
+}
+
+.children-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.children-card .price {
+  font-weight: bold;
+  color: #000;
+  font-size: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .children-grid {
+    grid-template-columns: repeat(3, 1fr); /* Planshetlarda 3x? */
+  }
+}
+
+@media (max-width: 768px) {
+  .children-grid {
+    grid-template-columns: repeat(2, 1fr); /* Telefonlarda 2x? */
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .children-grid {
+    grid-template-columns: 1fr; /* Mobilda 1 karta qatorda */
+  }
+}

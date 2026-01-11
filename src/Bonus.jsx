@@ -2,50 +2,36 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Bonus.css";
 
-// Promo kodlar ro'yxati
 const VALID_CODES = [
-  "KK0077",
-  "KK0088",
-  "KK0099",
-  "KK0100",
-  "KK0111",
-  "KK0122",
-  "KK0133",
-  "KK0144",
-  "KK0155",
-  "KK0166"
+  "KK0077","KK0088","KK0099","KK0100","KK0111",
+  "KK0122","KK0133","KK0144","KK0155","KK0166"
 ];
 
 const Bonus = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [hasAccess, setHasAccess] = useState(false); // Promo kod to'g'ri bo'lsa
-  const [showModal, setShowModal] = useState(true); // Modal oynani ko'rsatish
-  const [inputCode, setInputCode] = useState(""); // Input qiymati
+  const [hasAccess, setHasAccess] = useState(false);
+  const [showModal, setShowModal] = useState(true);
+  const [inputCode, setInputCode] = useState("");
 
-  // Qaysi sahifadan kelganini aniqlash
-  const fromPage = location.state?.from || "/"; // default Home
+  const fromPage = location.state?.from || "/";
 
-  // Form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
     if (VALID_CODES.includes(inputCode)) {
       setHasAccess(true);
       setShowModal(false);
     } else {
-      alert("Kod noto‘g‘ri 😢");
+      alert("Promo kod noto‘g‘ri ❌");
     }
   };
 
-  // Modalni yopish tugmasi
-  const handleClose = () => {
-    navigate(fromPage); // foydalanuvchi kelgan sahifaga qaytadi
-  };
+  const handleClose = () => navigate(fromPage);
 
   return (
     <>
-      {/* Header */}
+      {/* HEADER */}
       <header className="header">
         <h1 className="title">
           <img src="/logo.png" alt="Logo" />
@@ -55,14 +41,13 @@ const Bonus = () => {
           <Link to="/coffee">Coffee</Link>
           <Link to="/tea">Tea</Link>
           <Link to="/dessert">Dessert</Link>
+          <Link to="/children">Children</Link>
           <Link to="/bonus" className="active">Bonus</Link>
         </nav>
       </header>
 
-      {/* Bonus wrapper */}
       <div className="bonus-wrapper">
-
-        {/* Promo kod modal */}
+        {/* MODAL */}
         {showModal && (
           <div className="modal-overlay">
             <div className="modal">
@@ -70,9 +55,9 @@ const Bonus = () => {
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
+                 
                   value={inputCode}
                   onChange={(e) => setInputCode(e.target.value)}
-          
                 />
                 <button type="submit">Tasdiqlash</button>
               </form>
@@ -83,21 +68,28 @@ const Bonus = () => {
           </div>
         )}
 
-        {/* Bonus tugmalari */}
+        {/* BONUS BUTTONS */}
         {hasAccess && (
           <div className="bonus-buttons">
             <Link to="/coffee" className="bonus-btn" state={{ discount: 20 }}>
               Coffee <span className="discount-tag">20% OFF</span>
             </Link>
+
             <Link to="/tea" className="bonus-btn" state={{ discount: 10 }}>
               Tea <span className="discount-tag">10% OFF</span>
             </Link>
+
             <Link to="/dessert" className="bonus-btn" state={{ discount: 30 }}>
               Dessert <span className="discount-tag">30% OFF</span>
             </Link>
-            {/* Yangi “Ma’lumotlar” tugmasi */}
-            <Link to="/info" className="bonus-btn">
-              Ma’lumotlar ℹ️
+
+            <Link to="/children" className="bonus-btn" state={{ discount: 15 }}>
+              Children <span className="discount-tag">15% OFF</span>
+            </Link>
+
+            {/* 🆕 MA’LUMOT TUGMASI */}
+            <Link to="/info" className="bonus-btn info-btn">
+              Ma’lumot ℹ️
             </Link>
           </div>
         )}

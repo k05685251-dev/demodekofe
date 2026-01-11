@@ -67,7 +67,9 @@ const Tea = () => {
           <Link to="/coffee">Coffee</Link>
           <Link to="/tea" className="active">Tea</Link>
           <Link to="/dessert">Dessert</Link>
+          <Link to="/children">Children</Link>
           <Link to="/bonus">Bonus</Link>
+          
         </nav>
       </header>
 

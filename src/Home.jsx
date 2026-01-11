@@ -164,7 +164,9 @@ const Home = () => {
             <Link to="/coffee">Coffee</Link>
             <Link to="/tea">Tea</Link>
             <Link to="/dessert">Dessert</Link>
+            <Link to="/children">Children</Link>
             <Link to="/bonus">Bonus</Link>
+            
           </nav>
         </div>
 
