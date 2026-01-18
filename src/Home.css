@@ -594,13 +594,26 @@ body {
   border: 1px solid #555;
 }
 
-/* MODAL */
+/* MODAL - DARK MODE */
 .dark .modal,
 .dark .cancel-reasons label,
 .dark .address-box input {
-  background-color: #2c2c2c !important;
+  background-color: #3b2a20 !important; /* chuqur coffee rang */
+  color: #f5f5f5 !important;           /* yumshoq oq */
+  border: 1px solid #6b4a34;
+}
+
+/* Input ichidagi placeholder */
+.dark .address-box input::placeholder {
+  color: #cbb8a5;
+}
+.dark .modal,
+.dark .cancel-reasons label,
+.dark .address-box input {
+  background-color: #4a3325 !important;
   color: #fff !important;
 }
+
 .main-image-wrapper {
   position: relative;
   width: 100%;
